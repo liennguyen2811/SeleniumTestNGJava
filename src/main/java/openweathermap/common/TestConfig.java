@@ -4,7 +4,7 @@ public final class TestConfig {
     public static String testNameForBrowserstack;
     public static String getEnvironment() {
         String envEnvironment = System.getProperty("testEnvironment");
-        return (envEnvironment != null) ? envEnvironment : "dev";
+        return (envEnvironment != null) ? envEnvironment : "test";
 }
 
     public static Driver getHub() {
@@ -25,7 +25,7 @@ public final class TestConfig {
 
     public static Browser getBrowser() {
         String envBrowser = System.getProperty("testBrowser");
-        envBrowser = (envBrowser != null) ? envBrowser : "safari";
+        envBrowser = (envBrowser != null) ? envBrowser : "chrome";
 
         switch (envBrowser.toLowerCase()) {
             case "firefox":

@@ -1,5 +1,5 @@
 environment_urls:
-  base_url: http://the-internet.herokuapp.com/login
+  base_url: https://openweathermap.org/
 existing_users:
   tom_smith:
     email: kostas.stamos+test3@unifiedpost.com

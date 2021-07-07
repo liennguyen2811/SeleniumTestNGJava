@@ -14,13 +14,13 @@ import java.util.HashMap;
 
 
 public class MethodHelper {
-    public static String formatCurrentDate() {
+    public String formatCurrentDate() {
         String pattern = "MMM dd, yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         return simpleDateFormat.format(new Date());
     }
 
-    public static Object[][] ProvideData(String xlFilePath, String sheetName) throws Exception {
+    public Object[][] ProvideData(String xlFilePath, String sheetName) throws Exception {
         //open excel file
         Workbook workbook = Workbook.getWorkbook(new File(xlFilePath));
         //the required sheet
@@ -39,7 +39,7 @@ public class MethodHelper {
         return values;
     }
 
-    public static HashMap<String, String>readCSV() {
+    public HashMap<String, String>readCSV() {
         String fileName = "/Users/liennth7/Documents/Lien/build_demo/java-testng-selenium/src/test/resources/filedatatest/cityname.csv";
         HashMap<String, String> listCountryName = new HashMap<>();
         CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build(); // custom separator
@@ -62,17 +62,23 @@ public class MethodHelper {
     }
 
 
-    public static Object[][]hashMapToDataProvider(HashMap sourceHashMap) {
+    public Object[][]hashMapToDataProvider(HashMap sourceHashMap) {
         Object[][] result = new Object[sourceHashMap.size()][2];
         Object[] keys = sourceHashMap.keySet().toArray();
         Object[] values = sourceHashMap.values().toArray();
         for (int i = 0; i < keys.length; i++) {
             result[i][0] = keys[i];
             result[i][1] = values[i];
-            System.out.println("Lien check array " + result[i][0]);
-            System.out.println("Lien check array " + result[i][1]);
         }
         return result;
+    }
+    public boolean isStringInteger(String number ){
+        try{
+            Integer.parseInt(number);
+        }catch(Exception e ){
+            return false;
+        }
+        return true;
     }
 
     }
