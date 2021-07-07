@@ -15,7 +15,7 @@ public class SearchListPage extends AbstractPage {
         waitToElementVisible(SEARCH_RESULT);
         clickToElement(SEARCH_RESULT);
     }
-    public void clickToListResult(){
+    public void goToEachItemOfListResult(){
         waitToElementVisible(SEARCH_LIST_RESULT);
         List<WebElement> webElementList = getListElements(SEARCH_LIST_RESULT);
         for(int i=1; i<= webElementList.size(); i++){

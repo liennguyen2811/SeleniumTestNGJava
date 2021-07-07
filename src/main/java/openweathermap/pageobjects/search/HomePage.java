@@ -8,10 +8,9 @@ public class HomePage extends AbstractPage {
 
     public static final String SEARCH_TEXTBOX = "//input[@placeholder='Weather in your city']";
 
-
-    public void inputTextToSearch(String searchtext) {
+    public void inputTextToSearch(String searchText) {
         waitToElementVisible(SEARCH_TEXTBOX);
-        sendkeyToElement(SEARCH_TEXTBOX,searchtext);
+        sendkeyToElement(SEARCH_TEXTBOX,searchText);
         sendKeyCodeToElement(SEARCH_TEXTBOX,Keys.ENTER);
     }
 

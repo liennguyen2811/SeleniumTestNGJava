@@ -61,8 +61,7 @@ public class SearchDetailTest extends BaseTest {
         SearchDetailPage searchDetailPage = new SearchDetailPage();
         // 2. Input place to search
         homePage.inputTextToSearch("Hanoi");
-        //searchListPage.goToResultDetail();
-        searchListPage.clickToListResult();
+        searchDetailPage.checkAllItemOfListResultDisplay("Hanoi");
         //searchDetailPage.checkTemperatureDisplay();
         // 3. Check point : Current day time, Location, and weather
 //        Assert.assertTrue(searchDetailPage.checkDateTimeOfResult("Hanoi"));

@@ -2,10 +2,12 @@ package openweathermap.pageobjects.search;
 
 import openweathermap.helpers.MethodHelper;
 import openweathermap.pageobjects.AbstractPage;
+import org.openqa.selenium.WebElement;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 public class SearchDetailPage extends AbstractPage {
     public static final String SEARCH_RESULT_DATE = "//span[@class='orange-text']";
@@ -52,6 +54,27 @@ public class SearchDetailPage extends AbstractPage {
         else {
             return false;
         }
+    }
+
+    public boolean checkAllItemOfListResultDisplay(String searchText){
+        Boolean flag = false;
+        waitToElementVisible(SearchListPage.SEARCH_LIST_RESULT);
+        List<WebElement> webElementList = getListElements(SearchListPage.SEARCH_LIST_RESULT);
+        for(int i=1; i<= webElementList.size(); i++){
+            String SEARCH_ITEM_RESULT_FORMAT = String.format(SearchListPage.SEARCH_ITEM_RESULT, i);
+            waitToElementVisible(SEARCH_ITEM_RESULT_FORMAT);
+            clickToElement(SEARCH_ITEM_RESULT_FORMAT);
+            if(checkCityNameDisplay(searchText)==true && checkDateTimeOfResult(searchText)==true && checkTemperatureDisplay()==true){
+                flag=true;
+            }
+            else {
+                flag=false;
+                break;
+            }
+            backToPage();
+        }
+        System.out.println("Lien " + flag);
+        return flag;
     }
 
 }
