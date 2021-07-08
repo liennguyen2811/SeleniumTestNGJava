@@ -1,4 +1,4 @@
-Marketplace automated testing
+Open Weather Map Automation
 ==========================
 
 ### How do I get set up?
@@ -33,9 +33,7 @@ This project uses the following list of properties:
     * ```ie```
 * Browserstack specific: ```bsBrowser, bsBrowserVersion, bsOs, bsOsVersion, bsResolution```, using
  values from [bs_capabilities](https://www.browserstack.com/automate/java#setting-os-and-browser). They are taken into consideration only when you run the tests on Browserstack.
-* Test results can be pushed to a testrun from testrail.All you have to do is to set:
-    * ```useTestrail``` flag can be set to ```yes``` or ```no```
-    * ```testPlanId```, the testplan id from testrail(it can be seen in the URL when you acess that testplan)
+*
 
 #### Local machine
 * Right click on the testng.xml file and then select ```Edit...``` or right click on a test and the click on ```Create...```
@@ -46,3 +44,7 @@ This project uses the following list of properties:
 
 #### Jenkins
 * This needs to be created by your team
+* Use the above properties to make the input
+  on jenkins
+* Will run on slave (jenkinsnode) to distribute test suite 
+
