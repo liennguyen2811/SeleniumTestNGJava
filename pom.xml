@@ -9,6 +9,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <suite.file>src/test/resources/testng.xml</suite.file>
+        <testnames>SmokeTest,RegressionTest</testnames>
     </properties>
     <dependencies>
         <dependency>
@@ -125,6 +126,12 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>testnames</name>
+                            <value>${testnames}</value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
             <plugin>
