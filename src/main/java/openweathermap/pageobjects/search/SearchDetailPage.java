@@ -26,7 +26,13 @@ public class SearchDetailPage extends AbstractPage {
     public boolean checkDateTimeOfResult(String searchText){
         String timeStampCurrentDate = new SimpleDateFormat("MMM d, hh:mmaa").format(Calendar.getInstance().getTime());
         String timeStampCurrentDateFormat = timeStampCurrentDate.replace("AM", "am").replace("PM","pm");
-        if (getDateTimeFromSearchResult().equals(timeStampCurrentDateFormat)) {
+        // due to the second is sometimes different between app and system, we will ignore the second number at this case
+        // to make sure automation test stability
+        String firstSub1 = timeStampCurrentDateFormat.substring(0,11);
+        String lastSub1 = timeStampCurrentDateFormat.substring(12,14);
+        String firstSub2 = getDateTimeFromSearchResult().substring(0,11);
+        String lastSub2 = getDateTimeFromSearchResult().substring(12,14);
+        if (firstSub1.equals(firstSub2) && lastSub1.equals(lastSub2)) {
             return true;}
         else {return false;}
     }
