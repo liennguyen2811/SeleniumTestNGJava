@@ -4,8 +4,6 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
-import jxl.Sheet;
-import jxl.Workbook;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -18,25 +16,6 @@ public class MethodHelper {
         String pattern = "MMM dd, yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         return simpleDateFormat.format(new Date());
-    }
-
-    public Object[][] ProvideData(String xlFilePath, String sheetName) throws Exception {
-        //open excel file
-        Workbook workbook = Workbook.getWorkbook(new File(xlFilePath));
-        //the required sheet
-        Sheet sheet = workbook.getSheet(sheetName);
-        //return number of rows(rowCount)
-        int rowCount = sheet.getRows() - 1;
-        int columnCount = sheet.getColumns();
-        int currentPosition = 1;
-        Object[][] values = new Object[rowCount][columnCount];
-        for (int i = 0; i < rowCount; i++, currentPosition++) {
-            //loop over the rows
-            for (int j = 0; j < columnCount; j++)
-                values[i][j] = sheet.getCell(j, currentPosition).getContents();
-        }
-        workbook.close();
-        return values;
     }
 
     public HashMap<String, String>readCSV() {
