@@ -113,6 +113,7 @@ public class AbstractPage {
     public void sendkeyToElement(String locator, String value) {
         element = driver.findElement(By.xpath(locator));
         waitToElementPresence(locator);
+
         element.clear();
         element.sendKeys(value);
     }

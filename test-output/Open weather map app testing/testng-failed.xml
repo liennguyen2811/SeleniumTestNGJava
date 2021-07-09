@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="methods" name="Failed suite [Open weather map app testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="methods" name="RegressionTest(failed)">
+    <classes>
+      <class name="openweathermap.tests.search.SearchDetailTest">
+        <methods>
+          <include name="launchOpenWeatherApp"/>
+          <include name="checkListResult"/>
+          <include name="setConfiguration"/>
+          <include name="beforeTestMethods"/>
+          <include name="afterTestMethods"/>
+        </methods>
+      </class> <!-- openweathermap.tests.search.SearchDetailTest -->
+    </classes>
+  </test> <!-- RegressionTest(failed) -->
+</suite> <!-- Failed suite [Open weather map app testing] -->

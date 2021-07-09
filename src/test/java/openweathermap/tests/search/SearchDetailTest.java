@@ -40,7 +40,7 @@ public class SearchDetailTest extends BaseTest {
     }
 
     @Test(dataProvider="citySearch")
-    public void checkHelper(String citySearch,String cityDisplay) {
+    public void checkInfoWeatherCityByProvider(String citySearch,String cityDisplay) {
         //1.Open new log in page
         HomePage homePage = new HomePage();
         SearchListPage searchListPage = new SearchListPage();
