@@ -42,6 +42,11 @@ This project uses the following list of properties:
 * Click the play button
 * This will start running all the tests on your local machine using Chrome browser
 
+###### To run project
+* Get project from git repository
+* Navigate to repository location
+* Run: mvn install -DtestEnvironment=test -Dtestnames=SmokeTest -DtestBrowser=chrome
+
 #### Jenkins
 * This needs to be created by your team
 * Use the above properties to make the input

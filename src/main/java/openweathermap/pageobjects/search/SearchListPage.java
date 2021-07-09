@@ -25,5 +25,9 @@ public class SearchListPage extends AbstractPage {
             backToPage();
         }
     }
+    public boolean isSearchListResultDisplayed(){
+        waitToElementVisible(SEARCH_LIST_RESULT);
+        return isElementDisplayed(SEARCH_LIST_RESULT);
+    }
 }
 

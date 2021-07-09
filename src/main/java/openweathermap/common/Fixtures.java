@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriverException;
 import java.awt.*;
 
 public class Fixtures {
-
-
     public static class SetUp {
 
         public static long threadid;
@@ -18,7 +16,6 @@ public class Fixtures {
             BrowserControl bc = new BrowserControl();
             WebDriver browser = bc.newBrowser();
             threadid = Thread.currentThread().getId();
-            System.out.println("before Test Thread Number Is " + Thread.currentThread().getId());
             maximizeWindow(browser);
             browser.get(applicationURL);
             return browser;

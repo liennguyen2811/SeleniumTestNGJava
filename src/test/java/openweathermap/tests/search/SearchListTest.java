@@ -4,6 +4,7 @@ import openweathermap.pageobjects.search.HomePage;
 import openweathermap.pageobjects.search.SearchDetailPage;
 import openweathermap.pageobjects.search.SearchListPage;
 import openweathermap.tests.BaseTest;
+import org.junit.Assert;
 import org.testng.annotations.Test;
 
 public class SearchListTest extends BaseTest {
@@ -16,5 +17,6 @@ public class SearchListTest extends BaseTest {
         // 2. Input place to search
         homePage.inputTextToSearch("Hanoi");
         searchListPage.goToEachItemOfListResult();
+        Assert.assertTrue(searchListPage.isSearchListResultDisplayed());
     }
 }
