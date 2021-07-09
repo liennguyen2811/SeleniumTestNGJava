@@ -8,21 +8,16 @@ import org.openqa.selenium.WebDriverException;
 import java.awt.*;
 
 public class Fixtures {
-
-
     public static class SetUp {
 
+        public static long threadid;
+
         public static WebDriver initBrowser(String applicationURL) {
-
             BrowserControl bc = new BrowserControl();
-
             WebDriver browser = bc.newBrowser();
-
+            threadid = Thread.currentThread().getId();
             maximizeWindow(browser);
-
-
             browser.get(applicationURL);
-
             return browser;
         }
     }

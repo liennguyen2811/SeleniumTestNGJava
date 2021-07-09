@@ -1,4 +1,4 @@
-Marketplace automated testing
+Open Weather Map Automation
 ==========================
 
 ### How do I get set up?
@@ -33,9 +33,7 @@ This project uses the following list of properties:
     * ```ie```
 * Browserstack specific: ```bsBrowser, bsBrowserVersion, bsOs, bsOsVersion, bsResolution```, using
  values from [bs_capabilities](https://www.browserstack.com/automate/java#setting-os-and-browser). They are taken into consideration only when you run the tests on Browserstack.
-* Test results can be pushed to a testrun from testrail.All you have to do is to set:
-    * ```useTestrail``` flag can be set to ```yes``` or ```no```
-    * ```testPlanId```, the testplan id from testrail(it can be seen in the URL when you acess that testplan)
+*
 
 #### Local machine
 * Right click on the testng.xml file and then select ```Edit...``` or right click on a test and the click on ```Create...```
@@ -44,5 +42,16 @@ This project uses the following list of properties:
 * Click the play button
 * This will start running all the tests on your local machine using Chrome browser
 
+###### To run project
+* Get project from git repository
+* Navigate to repository location
+* Run: mvn install -DtestEnvironment=test -Dtestnames=SmokeTest -DtestBrowser=chrome
+
 #### Jenkins
 * This needs to be created by your team
+* Use the above properties to make the input
+  on jenkins
+* Will run on slave (Jenkins node) to distribute test suite
+* Document to setup jenkin and itsjob https://docs.google.com/document/d/1P-0gedrq4FcOrFd6y2ek6ooDmN1KHhy6kWN0X6KDAPU/edit#heading=h.gjdgxs 
+
+

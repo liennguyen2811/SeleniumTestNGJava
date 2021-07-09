@@ -40,7 +40,7 @@ public class SearchDetailTest extends BaseTest {
     }
 
     @Test(dataProvider="citySearch")
-    public void checkHelper(String citySearch,String cityDisplay) {
+    public void checkInfoWeatherCityByProvider(String citySearch,String cityDisplay) {
         //1.Open new log in page
         HomePage homePage = new HomePage();
         SearchListPage searchListPage = new SearchListPage();
@@ -53,19 +53,4 @@ public class SearchDetailTest extends BaseTest {
         Assert.assertEquals(searchDetailPage.getCityFromSearchResult(),cityDisplay);
     }
 
-    @Test
-    public void checkListResult() {
-        //1.Open new log in page
-        HomePage homePage = new HomePage();
-        SearchListPage searchListPage = new SearchListPage();
-        SearchDetailPage searchDetailPage = new SearchDetailPage();
-        // 2. Input place to search
-        homePage.inputTextToSearch("Hanoi");
-        searchDetailPage.checkAllItemOfListResultDisplay("Hanoi");
-        //searchDetailPage.checkTemperatureDisplay();
-        // 3. Check point : Current day time, Location, and weather
-//        Assert.assertTrue(searchDetailPage.checkDateTimeOfResult("Hanoi"));
-//        Assert.assertTrue(searchDetailPage.checkCityNameDisplay("Hanoi"));
-//        Assert.assertTrue(searchDetailPage.checkTemperatureDisplay());
-    }
 }
