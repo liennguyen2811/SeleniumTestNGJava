@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Open weather map app testing">
+<!--<suite name="Open weather map app testing" parallel="methods" thread-count="2" >-->
+    <test name="SmokeTest">
+        <classes>
+           <class name="openweathermap.tests.search.SearchListTest"/>
+        </classes>
+    </test>
+    <test name="RegressionTest">
+        <classes>
+            <class name="openweathermap.tests.search.SearchDetailTest">
+        </class>
+        </classes>
+    </test>
+</suite>
+
