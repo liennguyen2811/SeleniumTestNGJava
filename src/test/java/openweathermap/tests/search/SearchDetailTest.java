@@ -27,7 +27,7 @@ public class SearchDetailTest extends BaseTest {
         MethodHelper methodHelper = new MethodHelper();
         HashMap<String, String> listCountryToCheck;
         Object[][] result;
-        listCountryToCheck = methodHelper.readCSV();
+        listCountryToCheck = methodHelper.readCSV("cityname");
         result = methodHelper.hashMapToDataProvider(listCountryToCheck);
         return result;
     }
