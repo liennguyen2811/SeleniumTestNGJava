@@ -18,8 +18,9 @@ public class MethodHelper {
         return simpleDateFormat.format(new Date());
     }
 
-    public HashMap<String, String>readCSV() {
-        String fileName = "/Users/liennth7/Documents/Lien/build_demo/java-testng-selenium/src/test/resources/filedatatest/cityname.csv";
+    public HashMap<String, String>readCSV(String cityNameFile) {
+        String fileName = "src/test/resources/filedatatest/"+ cityNameFile + ".csv" ;
+        System.out.println("Lien check file name" + fileName);
         HashMap<String, String> listCountryName = new HashMap<>();
         CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build(); // custom separator
         try(CSVReader reader = new CSVReaderBuilder(

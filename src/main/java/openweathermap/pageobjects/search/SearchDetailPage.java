@@ -46,7 +46,7 @@ public class SearchDetailPage extends AbstractPage {
     public boolean checkCityNameDisplay(String cityName) {
         HashMap<String, String> listCountryToCheck;
         MethodHelper methodHelper = new MethodHelper();
-        listCountryToCheck = methodHelper.readCSV();
+        listCountryToCheck = methodHelper.readCSV("cityname");
         String CITY_NAME_DETAIL_FORMAT = String.format(CITY_NAME_DETAIL, cityName);
         waitToElementVisible(CITY_NAME_DETAIL_FORMAT);
         if (getTextElement(CITY_NAME_DETAIL_FORMAT).equals(listCountryToCheck.get(cityName))) {
