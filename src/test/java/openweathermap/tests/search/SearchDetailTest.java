@@ -8,49 +8,40 @@ import openweathermap.tests.BaseTest;
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.util.HashMap;
-
-
 public class SearchDetailTest extends BaseTest {
+
     @Test
-    public void launchOpenWeatherApp() {
+    public void checkResultDetailAfterSearch() {
         //1.Open new log in page
         HomePage homePage = new HomePage();
         SearchListPage searchListPage = new SearchListPage();
         SearchDetailPage searchDetailPage = new SearchDetailPage();
         // 2. Input place to search
         homePage.inputTextToSearch("Hanoi");
-        searchListPage.goToResultDetail();
-        searchDetailPage.checkTemperatureDisplay();
-        // 3. Check point : Current day time, Location, and weather
-        Assert.assertTrue(searchDetailPage.checkDateTimeOfResult("Hanoi"));
-        Assert.assertTrue(searchDetailPage.checkCityNameDisplay("Hanoi"));
-        Assert.assertTrue(searchDetailPage.checkTemperatureDisplay());
+        Assert.assertTrue(searchDetailPage.checkAllItemOfListResultDisplay("Hanoi"));
     }
 
-    @DataProvider(name="citySearch")
-    public Object[][] inputData() throws Exception
-    {   MethodHelper methodHelper = new MethodHelper();
+    @DataProvider(name = "citySearch")
+    public Object[][] inputData() throws Exception {
+        MethodHelper methodHelper = new MethodHelper();
         HashMap<String, String> listCountryToCheck;
-        Object[][] result ;
+        Object[][] result;
         listCountryToCheck = methodHelper.readCSV();
         result = methodHelper.hashMapToDataProvider(listCountryToCheck);
         return result;
     }
 
-    @Test(dataProvider="citySearch")
-    public void checkInfoWeatherCityByProvider(String citySearch,String cityDisplay) {
+    @Test(dataProvider = "citySearch")
+    public void checkResultDetailAfterSearchUseDataProvider(String citySearch, String cityDisplay) {
         //1.Open new log in page
         HomePage homePage = new HomePage();
         SearchListPage searchListPage = new SearchListPage();
         SearchDetailPage searchDetailPage = new SearchDetailPage();
         // 2. Input place to search
         homePage.inputTextToSearch(citySearch);
-        searchListPage.goToResultDetail();
         // 3. Check point : Current day time, Location, and weather
-        Assert.assertTrue(searchDetailPage.checkDateTimeOfResult(citySearch));
-        Assert.assertEquals(searchDetailPage.getCityFromSearchResult(),cityDisplay);
+        Assert.assertTrue(searchDetailPage.checkAllItemOfListResultDisplay(citySearch));
     }
 
 }
