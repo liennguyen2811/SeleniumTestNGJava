@@ -117,6 +117,7 @@ public class AbstractPage {
         element.clear();
         element.sendKeys(value);
     }
+
     public void sendKeyCodeToElement(String locator, Keys key) {
         driver.findElement(By.xpath(locator)).sendKeys(key);
     }
@@ -515,6 +516,7 @@ public class AbstractPage {
         }
 
     }
+
     public void selectItemInSingleDropdown(String parentLocator, String allItemLocator, String expectedItem) {
         element = driver.findElement(By.xpath(parentLocator));
         element.click();
@@ -532,6 +534,7 @@ public class AbstractPage {
         }
 
     }
+
     public void selectMultiItemInDropdown(String parentLocator, String allItemLocator, ArrayList<String> expectedListItem) {
         element = driver.findElement(By.xpath(parentLocator));
         element.click();
@@ -539,7 +542,7 @@ public class AbstractPage {
         waitExplicit.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(allItemLocator)));
         elements = driver.findElements(By.xpath(allItemLocator));
         for (WebElement item : elements) {
-            for(String expectedItem: expectedListItem) {
+            for (String expectedItem : expectedListItem) {
                 if (item.getText().contains(expectedItem)) {
                     String Xpath = String.format("//span[text()=' %s ']//parent::mat-option", expectedItem);
                     element = driver.findElement(By.xpath(Xpath));
@@ -628,7 +631,7 @@ public class AbstractPage {
         return dateList.equals(sortDateList);
     }
 
-    public ArrayList<Date> listStringParseToListDate(ArrayList<String> list){
+    public ArrayList<Date> listStringParseToListDate(ArrayList<String> list) {
         ArrayList<Date> dateList = new ArrayList<Date>();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
 
@@ -651,39 +654,39 @@ public class AbstractPage {
         return dateList.equals(sortDateList);
     }
 
-  public boolean isNumberSortedDescending(String locator) {
-    ArrayList<String> arrayList = getTextElementsInList(locator);
-    ArrayList<BigInteger> newList = new ArrayList<BigInteger>();
+    public boolean isNumberSortedDescending(String locator) {
+        ArrayList<String> arrayList = getTextElementsInList(locator);
+        ArrayList<BigInteger> newList = new ArrayList<BigInteger>();
 
-    for (String element : arrayList) {
-      // Check if element have text "Unlimited" in list, perform add new element to list
-      if (element.equals("Unlimited")) {
-        element = element.replace("Unlimited", "999999999999999");
-      }
-      element = element.replace(".", "");
-      newList.add(BigInteger.valueOf(Long.parseLong(element)));
+        for (String element : arrayList) {
+            // Check if element have text "Unlimited" in list, perform add new element to list
+            if (element.equals("Unlimited")) {
+                element = element.replace("Unlimited", "999999999999999");
+            }
+            element = element.replace(".", "");
+            newList.add(BigInteger.valueOf(Long.parseLong(element)));
+        }
+        ArrayList<BigInteger> sortList = new ArrayList<>(newList);
+        /* Sorting in decreasing order*/
+        sortList.sort(Collections.reverseOrder());
+        return newList.equals(sortList);
     }
-    ArrayList<BigInteger> sortList = new ArrayList<>(newList);
-    /* Sorting in decreasing order*/
-    sortList.sort(Collections.reverseOrder());
-    return newList.equals(sortList);
-  }
 
-  public boolean isNumberSortedAscending(String locator) {
-    ArrayList<String> arrayList = getTextElementsInList(locator);
-    ArrayList<BigInteger> newList = new ArrayList<BigInteger>();
+    public boolean isNumberSortedAscending(String locator) {
+        ArrayList<String> arrayList = getTextElementsInList(locator);
+        ArrayList<BigInteger> newList = new ArrayList<BigInteger>();
 
-    for (String element : arrayList) {
-      // Check if element have text "Unlimited" in list, perform add new element to list
-      if (element.equals("Unlimited")) {
-        element = element.replace("Unlimited", "999999999999999");
-      }
-      element = element.replace(".", "");
-      newList.add(BigInteger.valueOf(Long.parseLong(element)));
+        for (String element : arrayList) {
+            // Check if element have text "Unlimited" in list, perform add new element to list
+            if (element.equals("Unlimited")) {
+                element = element.replace("Unlimited", "999999999999999");
+            }
+            element = element.replace(".", "");
+            newList.add(BigInteger.valueOf(Long.parseLong(element)));
+        }
+        ArrayList<BigInteger> sortList = new ArrayList<>(newList);
+        /* Sorting in decreasing order*/
+        Collections.sort(sortList);
+        return newList.equals(sortList);
     }
-    ArrayList<BigInteger> sortList = new ArrayList<>(newList);
-    /* Sorting in decreasing order*/
-    Collections.sort(sortList);
-    return newList.equals(sortList);
-  }
 }

@@ -4,13 +4,13 @@
 <!--<suite name="Open weather map app testing" parallel="methods" thread-count="2" >-->
     <test name="SmokeTest">
         <classes>
-           <class name="openweathermap.tests.search.SearchListTest"/>
+           <class name="openweathermap.tests.search.SearchDetailTest"/>
         </classes>
     </test>
     <test name="RegressionTest">
         <classes>
-            <class name="openweathermap.tests.search.SearchDetailTest">
-        </class>
+            <class name="openweathermap.tests.search.SearchDetailTest"/>
+            <class name="openweathermap.tests.search.SearchListTest"/>
         </classes>
     </test>
 </suite>

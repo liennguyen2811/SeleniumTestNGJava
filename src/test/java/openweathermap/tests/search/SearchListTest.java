@@ -1,5 +1,4 @@
 package openweathermap.tests.search;
-
 import openweathermap.pageobjects.search.HomePage;
 import openweathermap.pageobjects.search.SearchDetailPage;
 import openweathermap.pageobjects.search.SearchListPage;
