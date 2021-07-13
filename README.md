@@ -52,6 +52,6 @@ This project uses the following list of properties:
 * Use the above properties to make the input
   on jenkins
 * Will run on slave (Jenkins node) to distribute test suite
-* Document to setup jenkin and itsjob https://docs.google.com/document/d/1P-0gedrq4FcOrFd6y2ek6ooDmN1KHhy6kWN0X6KDAPU/edit#heading=h.gjdgxs 
+* Document to setup jenkin and itsjob https://docs.google.com/document/d/e/2PACX-1vRP0ZDMTesJW-4j6qV-HG472pHtceJkRZj8tobyuYP9AqqZlJGLbHQXjaQRDxZZusJtLUHUnray63Cy/pub
 
 
