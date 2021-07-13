@@ -1,21 +1,18 @@
 package openweathermap.common;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 
 import java.awt.*;
+import java.io.File;
 
 public class Fixtures {
     public static class SetUp {
 
-        public static long threadid;
-
         public static WebDriver initBrowser(String applicationURL) {
             BrowserControl bc = new BrowserControl();
             WebDriver browser = bc.newBrowser();
-            threadid = Thread.currentThread().getId();
             maximizeWindow(browser);
             browser.get(applicationURL);
             return browser;
@@ -46,5 +43,11 @@ public class Fixtures {
                 ((JavascriptExecutor) browser).executeScript("window.moveTo(0,0); window.resizeTo(screen.width, screen.height);");
             }
         }
+    }
+    public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception{
+        TakesScreenshot scrShot =((TakesScreenshot)webdriver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile=new File(fileWithPath);
+        FileUtils.copyFile(SrcFile, DestFile);
     }
 }

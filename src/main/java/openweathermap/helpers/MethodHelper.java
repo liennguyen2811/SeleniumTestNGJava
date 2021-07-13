@@ -4,6 +4,8 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
+import jxl.Sheet;
+import jxl.Workbook;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -17,10 +19,26 @@ public class MethodHelper {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         return simpleDateFormat.format(new Date());
     }
-
+    public static Object[][] ProvideData(String xlFilePath, String sheetName) throws Exception{
+        //open excel file
+        Workbook workbook = Workbook.getWorkbook(new File(xlFilePath));
+        //the required sheet
+        Sheet sheet = workbook.getSheet(sheetName);
+        //return number of rows(rowCount)
+        int rowCount = sheet.getRows()-1;
+        int columnCount = sheet.getColumns();
+        int currentPosition = 1;
+        Object[][] values = new Object[rowCount][columnCount];
+        for(int i = 0 ; i < rowCount ; i++, currentPosition++){
+            //loop over the rows
+            for(int j = 0 ; j < columnCount ; j++)
+                values[i][j] = sheet.getCell(j, currentPosition).getContents();
+        }
+        workbook.close();
+        return values;
+    }
     public HashMap<String, String>readCSV(String cityNameFile) {
         String fileName = "src/test/resources/filedatatest/"+ cityNameFile + ".csv" ;
-        System.out.println("Lien check file name" + fileName);
         HashMap<String, String> listCountryName = new HashMap<>();
         CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build(); // custom separator
         try(CSVReader reader = new CSVReaderBuilder(
@@ -40,8 +58,7 @@ public class MethodHelper {
         }
         return listCountryName;
     }
-
-
+    
     public Object[][]hashMapToDataProvider(HashMap sourceHashMap) {
         Object[][] result = new Object[sourceHashMap.size()][2];
         Object[] keys = sourceHashMap.keySet().toArray();

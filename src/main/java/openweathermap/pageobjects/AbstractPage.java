@@ -1,6 +1,7 @@
 package openweathermap.pageobjects;
 
 import openweathermap.common.BrowserControl;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -11,10 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -378,41 +376,6 @@ public class AbstractPage {
         }
     }
 
-    public String CSVReader(int rowID, int columnID) {
-        String csvFile = "src/test/resources/filedatatest/apidetail.csv";
-        BufferedReader br = null;
-        String line = "";
-        String cvsSplitBy = "\\|";
-        String apiDetailText = null;
-        int i = 0;
-
-        try {
-
-            br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null & i <= rowID) {
-                i++;
-                // use comma as separator
-                if (i == rowID) {
-                    String[] textContain = line.split(cvsSplitBy);
-                    apiDetailText = textContain[columnID];
-                }
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return apiDetailText;
-    }
 
     public void clickToListElements(String locator) {
         List<WebElement> listElements = driver.findElements(By.xpath(locator));

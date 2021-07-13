@@ -20,6 +20,7 @@ public class SearchDetailTest extends BaseTest {
         // 2. Input place to search
         homePage.inputTextToSearch("Hanoi");
         Assert.assertTrue(searchDetailPage.checkAllItemOfListResultDisplay("Hanoi"));
+        Assert.assertTrue(false);
     }
 
     @DataProvider(name = "citySearch")
