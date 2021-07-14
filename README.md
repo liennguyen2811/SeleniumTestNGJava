@@ -10,6 +10,7 @@ Open Weather Map Automation
 * Go to the pom.xml file, right click, select Maven then Reimport
 * Download [selenium drivers](https://selenium.dev/documentation/en/webdriver/driver_requirements/#quick-reference)
 and add them in the bin/{```your_OS```} folder.
+* Install maven to run test in command line
 
 ### How to run the tests?
 
@@ -42,7 +43,7 @@ This project uses the following list of properties:
 * Click the play button
 * This will start running all the tests on your local machine using Chrome browser
 
-###### To run project
+###### To run project at command line**
 * Get project from git repository
 * Navigate to repository location
 * Run: mvn install -DtestEnvironment=test -Dtestnames=SmokeTest -DtestBrowser=chrome
@@ -52,6 +53,6 @@ This project uses the following list of properties:
 * Use the above properties to make the input
   on jenkins
 * Will run on slave (Jenkins node) to distribute test suite
-* Document to setup jenkin and itsjob https://docs.google.com/document/d/1P-0gedrq4FcOrFd6y2ek6ooDmN1KHhy6kWN0X6KDAPU/edit#heading=h.gjdgxs 
+* Document to setup jenkin and itsjob https://docs.google.com/document/d/e/2PACX-1vRP0ZDMTesJW-4j6qV-HG472pHtceJkRZj8tobyuYP9AqqZlJGLbHQXjaQRDxZZusJtLUHUnray63Cy/pub
 
 

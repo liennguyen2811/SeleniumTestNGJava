@@ -43,28 +43,21 @@ public final class TestConfig {
         }
     }
 
-
-    public static String getTestrailPlanId() {
-        return System.getProperty("testPlanId");
-    }
-
-    public static Boolean useTestRail() {
-        String envUseTestrail = System.getProperty("useTestrail");
-        envUseTestrail = (envUseTestrail != null) ? envUseTestrail : "no";
-
-        return envUseTestrail.equals("yes");
-    }
-
     public enum Driver {BROWSERSTACK, GRID, LOCAL}
 
     public enum Browser {FIREFOX, CHROME, IE, EDGE, SAFARI}
 
-
-    public static void setTestrailTestNameForBrowserStack(String testNameForBrowserStack){
+    public static void setTestNameForBrowserStack(String testNameForBrowserStack){
+        testNameForBrowserstack = testNameForBrowserStack;
+    }
+    public static String getTestNameForBrowserStack() {
+        return testNameForBrowserstack;
+    }
+    public static void setTestNameForTestFailed(String testNameForBrowserStack){
         testNameForBrowserstack = testNameForBrowserStack;
     }
 
-    public static String getTestNameForBrowserStack() {
+    public static String getTestNameForTestFailed() {
         return testNameForBrowserstack;
     }
 }

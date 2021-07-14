@@ -3,14 +3,17 @@ package openweathermap.tests;
 import openweathermap.common.TestConfig;
 import openweathermap.common.Fixtures;
 import openweathermap.models.EnvironmentData;
+import openweathermap.tests.hooks.GenericTestListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
+@Listeners({GenericTestListener.class})
 public class BaseTest {
     static HashMap<String, String> environmentUrls;
     public static HashMap<String, HashMap<String, String>> existingUsers;
@@ -25,6 +28,8 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void beforeTestMethods(Method method) {
         appURL = environmentUrls.get("base_url");
+        TestConfig.setTestNameForBrowserStack("BrowserStack " + method.getName());
+        TestConfig.setTestNameForTestFailed(method.getName());
         browser = Fixtures.SetUp.initBrowser(appURL);
     }
 

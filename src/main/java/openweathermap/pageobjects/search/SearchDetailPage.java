@@ -27,7 +27,6 @@ public class SearchDetailPage extends AbstractPage {
     public boolean checkDateTimeOfResult(String searchText) {
         String timeStampCurrentDate = new SimpleDateFormat("MMM d, hh:mmaa").format(Calendar.getInstance().getTime());
         String timeStampCurrentDateFormat = timeStampCurrentDate.replace("AM", "am").replace("PM", "pm");
-        System.out.println(timeStampCurrentDate + " " + timeStampCurrentDateFormat);
         // due to the second is sometimes different between app and system, we will ignore the second number at this case
         // to make sure automation test stability
         String firstSub1 = timeStampCurrentDateFormat.substring(0, 12);
