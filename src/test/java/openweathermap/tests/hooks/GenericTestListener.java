@@ -42,7 +42,6 @@ public class GenericTestListener extends TestListenerAdapter {
         }
         try {
             String testNameMethod = TestConfig.getTestNameForTestFailed();
-            System.out.println(" Lien testNameMethod is " + testNameMethod);
             Fixtures.takeSnapShot(driver,"src/test/resources/failedimage/" + testNameMethod);
         } catch (Exception e) {
             e.printStackTrace();
