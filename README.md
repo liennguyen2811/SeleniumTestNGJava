@@ -10,7 +10,7 @@ Open Weather Map Automation
 * Go to the pom.xml file, right click, select Maven then Reimport
 * Download [selenium drivers](https://selenium.dev/documentation/en/webdriver/driver_requirements/#quick-reference)
 and add them in the bin/{```your_OS```} folder.
-* Install maven to run test in command line
+* Install maven
 
 ### How to run the tests?
 
