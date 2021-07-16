@@ -55,4 +55,24 @@ This project uses the following list of properties:
 * Will run on slave (Jenkins node) to distribute test suite
 * Document to setup jenkin and itsjob https://docs.google.com/document/d/1nbVJC_CzDRjeyHytQkoNqR9t77mE7veTac5vPH_d7G0/edit?usp=sharing
 
+##### Azure pipeline example
+trigger:
+- master
+
+pool:
+  vmImage: macOS-latest
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+
+
 
